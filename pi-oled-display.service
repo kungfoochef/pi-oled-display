@@ -1,0 +1,14 @@
+[Unit]
+Description=Raspberry Pi OLED System Info Display
+After=network.target
+
+[Service]
+Type=simple
+User={{USER}}
+WorkingDirectory={{PROJECT_DIR}}
+ExecStart={{PROJECT_DIR}}/venv/bin/python {{PROJECT_DIR}}/system_info_display.py
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
